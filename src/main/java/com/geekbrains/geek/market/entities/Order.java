@@ -26,7 +26,7 @@ public class Order {
     private User user;
 
     @OneToMany(mappedBy = "order")
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    @Cascade({org.hibernate.annotations.CascadeType.ALL})
     private List<OrderItem> items;
 
     @Column(name = "price")
@@ -34,6 +34,14 @@ public class Order {
 
     @Column(name = "address")
     private String address;
+
+    public void setItemsFromCart(Cart cart) {
+        this.items = new ArrayList<>();
+        cart.getItems().stream().forEach(oi -> {
+            oi.setOrder(this);
+            items.add(oi);
+        });
+    }
 
     public Order(User user, Cart cart, String address) {
         this.user = user;

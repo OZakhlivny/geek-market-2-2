@@ -1,0 +1,32 @@
+<div>
+    <h3>Заказы</h3>
+    <table class="table table-hover" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>Номер</td>
+            <td>Сумма</td>
+            <td>Адрес доставки</td>
+            <td>Товары</td>
+            <td></td>
+        </tr>
+        <tbody>
+
+        <tr ng-repeat="o in orders">
+            <td>{{o.id}}</td>
+            <td>{{o.price}}</td>
+            <td>{{o.address}}</td>
+            <td>
+                <table class="table table-borderless">
+                    <tr>
+                        <td>Наименование</td>
+                        <td>Количество</td>
+                    </tr>
+                    <tr ng-repeat="oi in o.items">
+                        <td>{{oi.productTitle}}</td>
+                        <td>{{oi.quantity}}</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
