@@ -1,0 +1,39 @@
+<div>
+    <h3>Личные данные</h3>
+    <form novalidate ng-submit="updateUserData()">
+        <div class="form-group col-md-6">
+            <label for="name">Имя</label>
+            <input class="form-control" type="text" ng-model="user.name" id="name">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="surname">Фамилия</label>
+            <input class="form-control" type="text" ng-model="user.surname" id="surname">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="email">Email</label>
+            <input class="form-control" type="text" ng-model="user.email" id="email">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="phone">Телефон</label>
+            <input class="form-control" type="text" ng-model="user.phone" id="phone">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="gender">Пол</label>
+            <select class="form-control" ng-model="user.profile.gender" id="gender">
+                <option value="М">Мужской</option>
+                <option value="Ж">Женский</option>
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="birthyear">Год рождения</label>
+            <input class="form-control" type="number" ng-model="user.profile.birthyear" id="birthyear">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="hometown">Город проживания</label>
+            <input class="form-control" type="text" ng-model="user.profile.hometown" id="hometown">
+        </div>
+        <div>
+            <button class="btn btn-success" type="submit">Сохранить</button>
+        </div>
+    </form>
+</div>

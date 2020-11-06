@@ -30,6 +30,10 @@
             .when('/orders', {
                 templateUrl: 'orders/orders.html',
                 controller: 'orderController'
+            })
+            .when('/cabinet', {
+                templateUrl: 'cabinet/cabinet.html',
+                controller: 'userController'
             });
 
         $httpProvider.interceptors.push(function ($q, $location) {
@@ -61,4 +65,5 @@
             $http.defaults.headers.common.Authorization = 'Bearer ' + $localStorage.currentUser.token;
         }
     }
+
 })();
