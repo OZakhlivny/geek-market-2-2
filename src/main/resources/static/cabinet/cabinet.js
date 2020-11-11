@@ -15,7 +15,7 @@ angular.module('app').controller('userController', function ($scope, $http) {
     $scope.updateUserData = function () {
         $http.post(contextPath + '/api/v1/cabinet', $scope.user)
             .then(function (response) {
-                alert('Данные сохранены.');
+                alert(response.data.message);
             });
     };
 

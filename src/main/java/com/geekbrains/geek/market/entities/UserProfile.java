@@ -1,6 +1,7 @@
 package com.geekbrains.geek.market.entities;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -14,6 +15,7 @@ public class UserProfile {
     private Long id;
 
     @OneToOne
+    @ToString.Exclude
     @JoinColumn(name = "user_id")
     User user;
 
