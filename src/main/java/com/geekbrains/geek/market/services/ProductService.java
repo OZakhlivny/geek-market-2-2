@@ -3,6 +3,7 @@ package com.geekbrains.geek.market.services;
 import com.geekbrains.geek.market.entities.Product;
 import com.geekbrains.geek.market.repositories.ProductRepository;
 import com.geekbrains.geek.market.repositories.specifications.ProductSpecifications;
+import com.geekbrains.geek.market.soap.products.ProductSOAP;
 import com.geekbrains.geek.market.utils.ProductFilter;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -12,8 +13,8 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -38,5 +39,9 @@ public class ProductService {
 
     public Product saveOrUpdate(Product product) {
         return productRepository.save(product);
+    }
+
+    public List<ProductSOAP> findAllSOAP() {
+        return productRepository.findAll().stream().map(ProductSOAP::new).collect(Collectors.toList());
     }
 }
