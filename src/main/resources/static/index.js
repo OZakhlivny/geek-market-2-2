@@ -15,6 +15,10 @@
                 templateUrl: 'auth/auth.html',
                 controller: 'authController'
             })
+             .when('/register', {
+                 templateUrl: 'register/register.html',
+                 controller: 'registerController'
+             })
             .when('/store', {
                 templateUrl: 'store/store.html',
                 controller: 'storeController'

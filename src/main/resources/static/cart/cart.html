@@ -1,41 +1,48 @@
 <div>
-    <h3>Корзина</h3>
-    <table class="table table-hover" cellpadding="0" cellspacing="0">
+    <br>
+    <div class="form-group col-md-6">
+    <h4 class="h4 mb-3 font-weight-normal">Корзина</h4>
+    </div>
+    <div class="form-group col-md-6">
+    <span ng-if="cart.items.length == 0">Корзина пуста</span>
+    </div>
+    <table class="table table-hover" cellpadding="0" cellspacing="0" ng-if="cart.items.length > 0">
         <tr>
             <td>Название</td>
             <td>Категория</td>
-            <td>Количество</td>
-            <td>Цена</td>
+            <td style="text-align:center">Количество</td>
+            <td style="text-align:center">Цена</td>
         </tr>
         <tbody>
 
         <tr ng-repeat="oi in cart.items">
             <td>{{oi.productTitle}}</td>
             <td>{{oi.categoryTitle}}</td>
-            <td>
-                <button class="btn btn-success" ng-click="decrementItem(oi.productId)">-</button>
+            <td style="text-align:center">
+                <button class="btn btn-outline-secondary" ng-click="decrementItem(oi.productId)">-</button>
                 {{oi.quantity}}
-                <button class="btn btn-success" ng-click="incrementItem(oi.productId)">+</button>
-                <button class="btn btn-danger" ng-click="removeItem(oi.productId)">X</button>
+                <button class="btn btn-outline-secondary" ng-click="incrementItem(oi.productId)">+</button>
+                <button class="btn btn-outline-danger" ng-click="removeItem(oi.productId)">X</button>
             </td>
-            <td>{{oi.pricePerProduct + ' * ' + oi.quantity + ' = ' + oi.price}}</td>
+            <td style="text-align:right">{{oi.pricePerProduct + ' * ' + oi.quantity + ' = ' + oi.price}}</td>
         </tr>
         <tr>
+            <td><b>Итоговая стоимость</b></td>
             <td></td>
-            <td>Итоговая стоимость</td>
-            <td>{{cart.price}}</td>
+            <td></td>
+            <td style="text-align:right"><b>{{cart.price}}</b></td>
         </tr>
         </tbody>
     </table>
+    <br>
 
-    <h3>Оформить заказ</h3>
-    <form novalidate ng-submit="submitCreateNewOrder()">
+    <form novalidate ng-submit="submitCreateNewOrder()" ng-if="cart.items.length > 0">
         <div class="form-group col-md-6">
             <label for="address">Адрес доставки</label>
             <input class="form-control" type="text" ng-model="ord.address" id="address">
         </div>
-        <div>
-            <button class="btn btn-success" type="submit">Оформить</button>
+        <div class="form-group col-md-6">
+            <button class="btn btn-primary" type="submit">Оформить</button>
         </div>
     </form>
 </div>

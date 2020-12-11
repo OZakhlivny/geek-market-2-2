@@ -5,14 +5,11 @@ import com.geekbrains.geek.market.entities.Product;
 import com.geekbrains.geek.market.exceptions.ResourceNotFoundException;
 import com.geekbrains.geek.market.services.ProductService;
 import com.geekbrains.geek.market.utils.ProductFilter;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 

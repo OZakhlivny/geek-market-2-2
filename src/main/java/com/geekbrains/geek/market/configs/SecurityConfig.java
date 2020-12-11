@@ -1,11 +1,8 @@
 package com.geekbrains.geek.market.configs;
 
-import com.geekbrains.geek.market.services.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -16,18 +13,18 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    //    private UserService userService;
+
     private final JwtRequestFilter jwtRequestFilter;
 
-//    @Autowired
-//    public void setUserDetailsService(UserService userService) {
-//        this.userService = userService;
-//    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/api/v1/**").authenticated()
+                .antMatchers("/api/v1/admin/**").hasAnyRole("ADMIN", "OWNER")
+                .antMatchers("/api/v1/cart/**").authenticated()
+                .antMatchers("/api/v1/orders/**").authenticated()
+                .antMatchers("/api/v1/cabinet/**").authenticated()
+                .antMatchers("/api/v1/categories/**").authenticated()
                 .antMatchers("/h2-console/**").permitAll()
                 .anyRequest().permitAll()
                 .and()
@@ -48,16 +45,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
-//    @Bean
-//    public BCryptPasswordEncoder passwordEncoder() {
-//        return new BCryptPasswordEncoder();
-//    }
-//
-//    @Bean
-//    public DaoAuthenticationProvider daoAuthenticationProvider() {
-//        DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
-//        authenticationProvider.setPasswordEncoder(passwordEncoder());
-//        authenticationProvider.setUserDetailsService(userService);
-//        return authenticationProvider;
-//    }
 }

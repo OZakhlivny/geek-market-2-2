@@ -15,9 +15,10 @@ public class UserDto {
     private String phone;
     private UserProfileDto profile;
 
+    private String confirmationPassword;
+
     public UserDto(User user){
         this.username = user.getUsername();
-        //this.password = user.getPassword();
         this.email = user.getEmail();
         this.name = user.getName();
         this.surname = user.getSurname();

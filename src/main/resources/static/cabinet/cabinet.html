@@ -1,5 +1,8 @@
 <div>
-    <h3>Личные данные</h3>
+    <br>
+    <div class="form-group col-md-6">
+    <h4 class="h4 mb-3 font-weight-normal">Личные данные</h4>
+    </div>
     <form novalidate ng-submit="updateUserData()">
         <div class="form-group col-md-6">
             <label for="name">Имя</label>
@@ -36,8 +39,8 @@
             <label for="password">Пароль для подтверждения изменений</label>
             <input class="form-control" type="password" ng-model="user.password" id="password">
         </div>
-        <div>
-            <button class="btn btn-success" type="submit">Сохранить</button>
+        <div class="form-group col-md-6">
+            <button class="btn btn-primary" type="submit">Сохранить</button>
         </div>
     </form>
 </div>

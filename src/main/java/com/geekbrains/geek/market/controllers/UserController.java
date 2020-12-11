@@ -2,7 +2,6 @@ package com.geekbrains.geek.market.controllers;
 
 import com.geekbrains.geek.market.dto.UserDto;
 import com.geekbrains.geek.market.entities.User;
-import com.geekbrains.geek.market.entities.UserProfile;
 import com.geekbrains.geek.market.exceptions.MarketError;
 import com.geekbrains.geek.market.exceptions.ResourceNotFoundException;
 import com.geekbrains.geek.market.services.UserProfileService;
@@ -20,9 +19,8 @@ import java.security.Principal;
 @AllArgsConstructor
 public class UserController {
     private final UserService userService;
-    private final UserProfileService userProfileService;
 
-    @GetMapping
+    @GetMapping(produces = "application/json")
     public UserDto getUserData(Principal principal) {
         return new UserDto(userService.findByUsername(principal.getName()).orElseThrow(() -> new ResourceNotFoundException("Unable to load data for user: " + principal.getName() + ". User doesn't exist")));
     }
@@ -37,12 +35,10 @@ public class UserController {
             user.setSurname(userData.getSurname());
             user.setEmail(userData.getEmail());
             user.setPhone(userData.getPhone());
+            user.getProfile().setGender(userData.getProfile().getGender());
+            user.getProfile().setBirthyear(userData.getProfile().getBirthyear());
+            user.getProfile().setHometown(userData.getProfile().getHometown());
             userService.saveOrUpdate(user);
-            UserProfile userProfile = user.getProfile();
-            userProfile.setGender(userData.getProfile().getGender());
-            userProfile.setBirthyear(userData.getProfile().getBirthyear());
-            userProfile.setHometown(userData.getProfile().getHometown());
-            userProfileService.saveOrUpdate(userProfile);
             result = "Данные сохранены.";
         }
         return new ResponseEntity<>(new MarketError(HttpStatus.OK.value(), result), HttpStatus.OK);

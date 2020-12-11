@@ -1,5 +1,8 @@
 <div>
-    <h3>Добавить новый товар</h3>
+    <br>
+    <div class="form-group col-md-6">
+        <h4 class="h4 mb-3 font-weight-normal">Добавить новый товар</h4>
+    </div>
     <form novalidate ng-submit="submitCreateNewProduct()">
         <div class="form-group col-md-6">
             <label for="elementTitle">Название</label>
@@ -9,8 +12,8 @@
             <label for="elementPrice">Цена</label>
             <input class="form-control" type="number" ng-model="newProduct.price" id="elementPrice">
         </div>
-        <div>
-            <button class="btn btn-success" type="submit">Сохранить</button>
+        <div class="form-group col-md-6">
+            <button class="btn btn-primary" type="submit">Сохранить</button>
         </div>
     </form>
 </div>

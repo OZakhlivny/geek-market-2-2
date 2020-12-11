@@ -17,25 +17,29 @@
 <body>
 
 <div class="container">
-    <h1>Магазин</h1>
-    <a class="btn btn-outline-warning" href="#!/">Главная</a>
-    <a class="btn btn-outline-warning" href="#!/auth">Войти</a>
-    <a class="btn btn-outline-warning" href="#!/store">Магазин</a>
-    <a class="btn btn-outline-warning" href="#!/admin">Админка</a>
-    <a class="btn btn-outline-warning" href="#!/cart">Корзина</a>
-    <a class="btn btn-outline-warning" href="#!/orders">Заказы</a>
-    <a class="btn btn-outline-warning" href="#!/cabinet">Личный кабинет</a>
+    <h1 class="h3 mb-3 font-weight-normal">Geek-market онлайн магазин</h1>
+    <a class="btn btn-outline-primary" href="#!/">Главная</a>
+    <a class="btn btn-outline-primary" href="#!/auth">Войти</a>
+    <a class="btn btn-outline-primary" href="#!/register">Регистрация</a>
+    <a class="btn btn-outline-primary" href="#!/store">Магазин</a>
+    <a class="btn btn-outline-primary" href="#!/admin">Админка</a>
+    <a class="btn btn-outline-primary" href="#!/cart">Корзина</a>
+    <a class="btn btn-outline-primary" href="#!/orders">Заказы</a>
+    <a class="btn btn-outline-primary" href="#!/cabinet">Личный кабинет</a>
 
 
     <ng-view></ng-view>
 
     <script src="index.js"></script>
     <script src="store/store.js"></script>
+    <script src="register/register.js"></script>
     <script src="admin/admin.js"></script>
     <script src="cart/cart.js"></script>
     <script src="auth/auth.js"></script>
     <script src="orders/orders.js"></script>
     <script src="cabinet/cabinet.js"></script>
+    <br><br>
 </div>
+
 </body>
 </html>

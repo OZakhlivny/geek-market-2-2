@@ -84,7 +84,37 @@ values
 
 insert into products (title, price, category_id)
 values
-('Bread', 1, 1),
-('Samsung V100', 2, 3),
-('Acer X1000', 3, 2);
+('Bread', 50, 1),
+('Water', 70, 1),
+('Samsung V100', 2000, 3),
+('Apple iPhone X', 50000, 3),
+('Apple iPhone 11', 70000, 3),
+('Apple iPhone 12', 80000, 3),
+('Huawei Mate 30', 30000, 3),
+('Huawei P30 Pro', 35000, 3),
+('Huawei P40 Pro', 50000, 3),
+('Xiaomi M10 Note', 50000, 3),
+('Xiaomi M9 Lite', 20000, 3),
+('Xiaomi Poco 3', 40000, 3),
+('Google Pixel 3', 30000, 3),
+('Google Pixel 3XL', 35000, 3),
+('Google Pixel 4', 60000, 3),
+('Acer X1000', 30000, 2),
+('Apple Macbook Pro', 100000, 2),
+('Apple Macbook Air', 90000, 2),
+('Dell Vostro', 40000, 2),
+('Asus Vivo', 60000, 2),
+('Asus TUF', 70000, 2)
+;
+
+insert into orders (user_id, price, address)
+values
+(1, 150140, 'Rostov-on-Don, Gagarina sq. 1');
+
+insert into order_items (order_id, product_id, quantity, price_per_product, price)
+values
+(1, 4, 1, 50000, 50000),
+(1, 17, 1, 100000, 100000),
+(1, 2,  2, 70, 140)
+;
 

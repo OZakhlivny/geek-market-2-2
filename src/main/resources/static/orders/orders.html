@@ -1,28 +1,34 @@
 <div>
-    <h3>Заказы</h3>
+    <br>
+    <h4 class="h4 mb-3 font-weight-normal">История заказов</h4>
+    <br>
     <table class="table table-hover" cellpadding="0" cellspacing="0">
-        <tr>
+        <tr style="font-weight:bold">
             <td>Номер</td>
-            <td>Сумма</td>
+            <td style="text-align:right">Сумма</td>
             <td>Адрес доставки</td>
-            <td>Товары</td>
+            <td style="text-align:center">Состав заказа</td>
             <td></td>
         </tr>
         <tbody>
 
-        <tr ng-repeat="o in orders">
+        <tr ng-repeat="o in orders" style="text-align:right">
             <td>{{o.id}}</td>
-            <td>{{o.price}}</td>
+            <td style="text-align:right">{{o.price}}</td>
             <td>{{o.address}}</td>
             <td>
-                <table class="table table-borderless">
-                    <tr>
+                <table class="table table-borderless" cellpadding="0" cellspacing="0" style="font-size:80%">
+                    <tr style="font-weight:bold">
                         <td>Наименование</td>
-                        <td>Количество</td>
+                        <td style="text-align:center">Количество</td>
+                        <td style="text-align:right">Цена</td>
+                        <td style="text-align:right">Сумма</td>
                     </tr>
                     <tr ng-repeat="oi in o.items">
                         <td>{{oi.productTitle}}</td>
-                        <td>{{oi.quantity}}</td>
+                        <td style="text-align:center">{{oi.quantity}}</td>
+                        <td style="text-align:right">{{oi.pricePerProduct}}</td>
+                        <td style="text-align:right">{{oi.price}}</td>
                     </tr>
                 </table>
             </td>
